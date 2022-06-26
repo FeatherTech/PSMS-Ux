@@ -1,0 +1,258 @@
+<div>
+  <div *ngIf="spinner" class=" rox d-flex justify-content-center spinner-psms">
+    <div class="spinner-border text-dark" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!spinner">
+    <h4>Admission Detail & Payment</h4>
+    <div class="input-group input-group-sm mb-3">
+      <input type="text" class="form-control" placeholder="Search name, admission#, contact.. "
+        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+        (input)="filterAdmittedRecord($event.target)">
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Admission#</th>
+            <th scope="col">Session</th>
+            <th scope="col">Stream</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Class</th>
+            <th scope="col">Contact</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let admtStnd of admtdStdntsToBind" (click)="rowClick(admtStnd)">
+            <td scope="row">{{admtStnd.adm_id}}</td>
+            <td>{{admtStnd.session}}</td>
+            <td>{{admtStnd.stream}}</td>
+            <td>{{admtStnd.first_name + ' ' + admtStnd.middle_name + ' ' + (admtStnd.last_name === null ? '' :
+              admtStnd.last_name)}}</td>
+            <td>{{admtStnd.dob.substring(0, 10)}}</td>
+            <td>{{admtStnd.class}}</td>
+            <td>{{admtStnd.phone}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>
+
+<ng-template #pmtmodal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Information for {{admtdStdnToShowInModal.first_name}} </h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="row gy-2 gx-3 align-items-center bg-light bg-gradient border border-light">
+      <div class="col-auto">
+        <label class="form-label">Name</label>
+        <label style="display:block ;">
+          {{admtdStdnToShowInModal.first_name + ' ' + admtdStdnToShowInModal.last_name }}</label>
+
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Contact</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.phone}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">DOB</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.dob.substring(0, 10)}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Previous School</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.prev_school}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Admission in Class</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.admin_in_class}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Tribe</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.tribe}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Category</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.category}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Religion</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.religion}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Father's Name</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.father_name}}</label>
+      </div>
+
+      <div class="col-auto">
+        <small class="form-label">Father's Phone </small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.father_phone}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Mother's Name</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.mother_name}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">House No</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.comu_addr}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Location</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.comu_loc}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Ward</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.comu_ward}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">District</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.comu_dist}}</label>
+      </div>
+      <div class="col-auto">
+        <small class="form-label">Post office</small>
+        <label style="display:block ;">{{admtdStdnToShowInModal.comu_po}}</label>
+      </div>
+    </form>
+    <div>
+      <div *ngIf="spinnerPmt" class=" rox d-flex justify-content-center">
+        <div class="spinner-border text-dark" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div *ngIf="!spinnerPmt && rcvdFesStructure.length > 0 " class="bg-light bg-gradient border border-light p-1">
+        <h5>Fees payment details</h5>
+        <table class="table table-bordered table-striped table-hover table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Particulars</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fee of rcvdFesStructure">
+              <td>{{fee.head}}</td>
+              <td>{{fee.amount}}</td>
+            </tr>
+            <tr>
+              <th>Total</th>
+              <th>{{sumTotalFee}}</th>
+            </tr>
+
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+            <button type="button" class="btn btn-primary mt-2" title="Pay Admission Fee">Pay Admission Fee</button>
+            <button type="button" class="btn btn-primary mt-2 ml-2"  title="Print Reciept">Print Reciept</button>
+            <button type="button" class=" btn-close close btn btn-light mt-2 float-right" aria-label="Close" (click)="closeModal()">
+              <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!spinnerPmt && rcvdFesStructure.length === 0">
+        <h5> No data payment data found for this student</h5>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- <h4>Payment</h4>
+
+  <div class="container col-xs-12 col-sm-12 col-md-11 col-lg-11 background-color border" >
+    <div class="form-row">
+      <div class="form-group col-2">
+        <small for="pay_type">Payment Type</small> <br>
+          <select style="height:25px; font-size: small; padding-top: 0px; background-color: whitesmoke;"
+             id="pay_type" class="form-control form-control-sm"
+              (change)="setPaymentType($event.target)" >
+
+
+            <option [value]="paymentType.desc" selected>{{paymentType.desc}}</option>
+            <option *ngFor="let l of paymentTypeList" [value]="l.desc">{{l.desc}}</option>
+          </select>
+      </div>
+
+      <div class="form-group col-2" *ngIf="paymentType.id=='NEW'">
+        <small for="adm_id">Admission id</small>
+          <input style="height:25px; " type="text" class="form-control form-control-sm text-capitalize" id="adm_id"
+          placeholder="Admission Id">
+       </div>
+
+       <div class="form-group col-2" *ngIf="paymentType.id=='OLD'">
+        <small for="reg_no">Registration No</small>
+           <input style="height:25px; " type="text" class="form-control form-control-sm text-capitalize" id="reg_no"
+           placeholder="Registration No">
+        </div>
+
+        <div class="form-group col-2">
+          <small for="class">Class</small>
+             <input style="height:25px; " type="text" class="form-control form-control-sm text-capitalize" id="class"
+             placeholder="class">
+          </div>
+
+
+      <div class="form-group col-2">
+        <small for="std_name">Student Name</small>
+          <input style="height:25px; " type="text" class="form-control form-control-sm text-capitalize" id="std_name"
+          placeholder="Name">
+      </div>
+
+      <div class="form-group col-2">
+        <small for="std_phone">Phone Number</small>
+          <input style="height:25px; " type="text" class="form-control form-control-sm text-capitalize" id="std_phone"
+          placeholder="Phone No">
+      </div>
+
+      <div class="form-group col-1">
+          <button type="button" style="height:22px; padding-top: 0px;" class="btn btn-primary btn-sm ml-1 mr-1 mt-4"
+                (click)="null">SEARCH</button>
+        </div>
+
+
+    </div>
+
+  </div>
+
+<br>
+
+  <div class="container col-xs-12 col-sm-12 col-md-11 col-lg-11 bg-white  border">
+    <div class="form-row ">
+
+      <div class="col-12 scroll-when-long">
+        <h6 style="background-color:lightskyblue" *ngIf="!(dummyTableList.length > 0)">No Student Data Available</h6>
+        <div class="table-responsive" *ngIf="dummyTableList.length > 0">
+
+          <table class="table table-sm table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Reg No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Class</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let std of dummyTableList; let i = index" (click)="rowClick(std)">
+                <td>{{std.regNo}}</td>
+
+                <td>{{std.name}}</td>
+                <td>{{std.class}}</td>
+                <td>{{std.phone}}</td>
+                <td>{{std.address}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> -->

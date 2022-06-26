@@ -1,0 +1,32 @@
+<div>
+  <div *ngIf="spinner" class=" rox d-flex justify-content-center spinner-psms">
+    <div class="spinner-border text-dark" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!spinner">
+    <h4>Admitted Students</h4>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Admission#</th>
+            <th scope="col">Session</th>
+            <th scope="col">Name</th>
+            <th scope="col">Class</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let admtStnd of admtdStdnts">
+            <th scope="row">{{admtStnd.adm_id}}</th>
+            <td>{{admtStnd.session}}</td>
+            <td>{{admtStnd.first_name + ' ' + admtStnd.middle_name + ' ' + admtStnd.last_name}}</td>
+            <td>{{admtStnd.class}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

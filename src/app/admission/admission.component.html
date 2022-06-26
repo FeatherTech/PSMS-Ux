@@ -1,0 +1,494 @@
+<div>
+  <div *ngIf="spinner" class=" rox d-flex justify-content-center spinner-psms">
+    <div class="spinner-border text-dark" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <h4 style="display: inline;">New Admission</h4>
+  <div class="form-check form-check-inline ml-3">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+    [checked]="admissionOf==='A-10'" value="A-10" [(ngModel)]="admissionOf">
+    <label class="form-check-label" for="inlineRadio1">A-10</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+    [checked]="admissionOf !== 'A-10'" value="11-12" [(ngModel)]="admissionOf">
+    <label class="form-check-label" for="inlineRadio2">11-12</label>
+  </div>
+  <div *ngIf="!spinner">
+    <div *ngIf="admissionOf ==='A-10'">
+      <form [formGroup]="admissionFrm">
+        <div class="row">
+          <h6 class="mt-2 col-12 text-muted text-uppercase">Student Information</h6>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="first_name" class="form-label col-form-label-sm">First Name</label>
+            <input type="text" class="form-control form-control-sm" id="first_name" formControlName="first_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="middle_name" class="form-label col-form-label-sm">Middle Name</label>
+            <input type="text" class="form-control form-control-sm" id="middle_name" formControlName="middle_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="last_name" class="form-label col-form-label-sm">Last Name</label>
+            <input type="text" class="form-control form-control-sm" id="last_name" formControlName="last_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="dob" class="form-label col-form-label-sm">Date Of Birth</label>
+            <input type="date" class="form-control form-control-sm" id="dob" formControlName="dob">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="prev_school" class="form-label col-form-label-sm">Previous School Attended</label>
+            <input type="text" class="form-control form-control-sm" id="prev_school" formControlName="prev_school">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="prev_class" class="form-label col-form-label-sm">Previous Class</label>
+            <input type="text" class="form-control form-control-sm" id="prev_class" formControlName="prev_class">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="admin_in_class" class="form-label col-form-label-sm">Admission in Class</label>
+            <input type="text" class="form-control form-control-sm" id="admin_in_class" formControlName="admin_in_class">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="tribe" class="form-label col-form-label-sm">Tribe / Community</label>
+            <input type="text" class="form-control form-control-sm" id="tribe" formControlName="tribe">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="category" class="form-label col-form-label-sm">Category</label>
+            <input type="text" class="form-control form-control-sm" id="category" formControlName="category">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="religion" class="form-label col-form-label-sm">Religion</label>
+            <input type="text" class="form-control form-control-sm" id="religion" formControlName="religion">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="nationality" class="form-label col-form-label-sm">Nationality</label>
+            <input type="text" class="form-control form-control-sm" id="nationality" formControlName="nationality">
+          </div>
+        </div>
+        <div class="row">
+          <h6 class="mt-2 col-12 text-muted text-uppercase">Parent's Information</h6>
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <label for="father_name" class="form-label col-form-label-sm">Father's Name</label>
+            <input type="text" class="form-control form-control-sm" id="father_name" formControlName="father_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="father_phone" class="form-label col-form-label-sm">Phone No</label>
+            <input type="text" class="form-control form-control-sm" id="father_phone" formControlName="father_phone">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="father_qual" class="form-label col-form-label-sm">Qualification</label>
+            <input type="text" class="form-control form-control-sm" id="father_qual" formControlName="father_qual">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="father_ocu" class="form-label col-form-label-sm">Occupation</label>
+            <input type="text" class="form-control form-control-sm" id="father_ocu" formControlName="father_ocu">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="father_des" class="form-label col-form-label-sm">Designation </label>
+            <input type="text" class="form-control form-control-sm" id="father_des" formControlName="father_des">
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <label for="mother_name" class="form-label col-form-label-sm">Mother's Name</label>
+            <input type="text" class="form-control form-control-sm" id="mother_name" formControlName="mother_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="mother_phone" class="form-label col-form-label-sm">Phone No</label>
+            <input type="text" class="form-control form-control-sm" id="mother_phone" formControlName="mother_phone">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="mother_qual" class="form-label col-form-label-sm">Qualification</label>
+            <input type="text" class="form-control form-control-sm" id="mother_qual" formControlName="mother_qual">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="mother_ocu" class="form-label col-form-label-sm">Occupation</label>
+            <input type="text" class="form-control form-control-sm" id="mother_ocu" formControlName="mother_ocu">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="mother_des" class="form-label col-form-label-sm">Designation </label>
+            <input type="text" class="form-control form-control-sm" id="mother_des" formControlName="mother_des">
+          </div>
+        </div>
+        <div class="row">
+          <h6 class="mt-2 col-12 text-muted text-uppercase">Communication Address</h6>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="comu_addr" class="form-label col-form-label-sm">House No</label>
+            <input type="text" class="form-control form-control-sm" id="comu_addr" formControlName="comu_addr">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="comu_loc" class="form-label col-form-label-sm">Locality</label>
+            <input type="text" class="form-control form-control-sm" id="comu_loc" formControlName="comu_loc">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="comu_ward" class="form-label col-form-label-sm">Ward No</label>
+            <input type="text" class="form-control form-control-sm" id="comu_ward" formControlName="comu_ward">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="comu_dist" class="form-label col-form-label-sm">District</label>
+            <input type="text" class="form-control form-control-sm" id="comu_dist" formControlName="comu_dist">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="comu_po" class="form-label col-form-label-sm">PO</label>
+            <input type="text" class="form-control form-control-sm" id="comu_po" formControlName="comu_po">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="comu_state" class="form-label col-form-label-sm">State</label>
+            <input type="text" class="form-control form-control-sm" id="comu_state" formControlName="comu_state">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="comu_pin" class="form-label col-form-label-sm">Pin Code</label>
+            <input type="text" class="form-control form-control-sm" id="comu_pin" formControlName="comu_pin">
+          </div>
+
+
+
+        </div>
+        <div class="row">
+          <h6 class="mt-2 col-5 text-muted text-uppercase">Permanent Address</h6>
+          <div class="mt-2 col-7">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="per_comu_same">
+              <label class="form-check-label" for="per_comu_same">
+                Same as above
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="per_addr" class="form-label col-form-label-sm">House No</label>
+            <input type="text" class="form-control form-control-sm" id="per_addr" formControlName="per_addr">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="per_loc" class="form-label col-form-label-sm">Locality</label>
+            <input type="text" class="form-control form-control-sm" id="per_loc" formControlName="per_loc">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="per_ward" class="form-label col-form-label-sm">Ward No</label>
+            <input type="text" class="form-control form-control-sm" id="per_ward" formControlName="per_ward">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="per_dist" class="form-label col-form-label-sm">District</label>
+            <input type="text" class="form-control form-control-sm" id="per_dist" formControlName="per_dist">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="per_po" class="form-label col-form-label-sm">PO</label>
+            <input type="text" class="form-control form-control-sm" id="per_po" formControlName="per_po">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="per_state" class="form-label col-form-label-sm">State</label>
+            <input type="text" class="form-control form-control-sm" id="per_state" formControlName="per_state">
+          </div>
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+            <label for="per_pin" class="form-label col-form-label-sm">Pin Code</label>
+            <input type="text" class="form-control form-control-sm" id="per_pin" formControlName="per_pin">
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <h6 class="mt-2 col-12 text-muted text-uppercase">Declaration</h6>
+          <p class="lh-1 ml-3" style="font-size: smaller">I here by declare that all particulars are correct and true and I shall not ask to have any
+            alteration therein
+            either in full or part a any time in future.</p>
+          <p class="lh-sm ml-3"  style="font-size: smaller">I do hereby undertake to abide by the rules and regulations of the school and also honour the
+            circular issued
+            from time to time by the school for its welfare as we students betterment and development failing which the
+            school reserve the right to take any suitable action thereupon, even issuing T.C to the student without
+            assigning any reason whatsoever.</p>
+          <p class="lh-base ml-3"  style="font-size: smaller"> The above declaration and undertaking is being furnished of my own free will and without any
+            pressure from my
+            quarter. I shall have no objection if the school authorities take any disciplinary action / against my son /
+            daughter if he / she is found guilty of misconduct.</p>
+        </div> -->
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+            <button type="button" class="btn btn-primary mt-2" (click)="saveNewAdmission()" title="save new admission">Save</button>
+            <button type="button" class="btn btn-primary mt-2 ml-2"  title="Print Admission Reciept">Print Admission Reciept</button>
+          </div>
+        </div>
+
+        <!-- <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div> -->
+      </form>
+    </div>
+    <div *ngIf="admissionOf !== 'A-10'">
+      <form [formGroup]="admissionFrm">
+        <div class="row">
+          <h6 class="mt-2 col-12 text-muted text-uppercase">Student Information</h6>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="first_name" class="form-label col-form-label-sm">First Name</label>
+            <input type="text" class="form-control form-control-sm" id="first_name" formControlName="first_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="middle_name" class="form-label col-form-label-sm">Middle Name</label>
+            <input type="text" class="form-control form-control-sm" id="middle_name" formControlName="middle_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="last_name" class="form-label col-form-label-sm">Last Name</label>
+            <input type="text" class="form-control form-control-sm" id="last_name" formControlName="last_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="phone" class="form-label col-form-label-sm">Phone No</label>
+            <input type="text" class="form-control form-control-sm" id="phone" formControlName="phone">
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+            <label for="cls" class="form-label col-form-label-sm">Class</label>
+            <select id="cls" formControlName="class"  class="form-select">
+            <option selected>Choose...</option>
+            <option value="11">XI</option>
+            <option value="12">XII</option>
+            </select>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <label for="cls" class="form-label col-form-label-sm">Stream</label>
+          <div class="form-check form-check-inline ml-3">
+            <input class="form-check-input" type="radio" formControlName="stream"  (click) ="handleChange('ARTS')" name="inlineRadioOptions" id="inlineRadio1"
+            value="ARTS" [(ngModel)]="stream">
+            <label class="form-check-label" for="inlineRadio1">ARTS</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="stream"  (click) ="handleChange('SCIENCE')" name="inlineRadioOptions" id="inlineRadio2"
+             value="SCIENCE" [(ngModel)]="stream">
+            <label class="form-check-label" for="inlineRadio2">SCIENCE</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="stream"  (click) ="handleChange('COMMERCE')" name="inlineRadioOptions" id="inlineRadio3"
+            value="COMMERCE" [(ngModel)]="stream">
+            <label class="form-check-label" for="inlineRadio3">COMMERCE</label>
+          </div>
+          </div>
+          <div *ngIf="stream === 'SCIENCE'" class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+            <label for="science" class="form-label col-form-label-sm">Elective Subject</label>
+            <select id="science" formControlName="sub6" class="form-select">
+            <option selected>Choose...</option>
+            <option value="ALTENGLISH">ALT.ENGLISH</option>
+            <option value="COMPUTERSCIENCE">COMPUTER SCIENCE</option>
+            </select>
+          </div>
+          <div *ngIf="stream === 'COMMERCE'" class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+            <label for="commerce" class="form-label col-form-label-sm">Elective Subject</label>
+            <select id="commerce" formControlName="sub6"  class="form-select">
+            <option selected>Choose...</option>
+            <option value="ALTENGLISH">ALT.ENGLISH</option>
+            <option value="COMPUTERSCIENCE">COMPUTER SCIENCE</option>
+            </select>
+          </div>
+          <div *ngIf="stream === 'ARTS'" class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+            <label for="cls" class="form-label col-form-label-sm">Elective Subject</label>
+            <select id="arts" formControlName="sub6" class="form-select">
+            <option selected>Choose...</option>
+            <option value="ECONOMICS">ECONOMICS</option>
+            <option value="MUSIC">MUSIC</option>
+            </select>
+          </div>
+          <h6 style="display: inline;">Accomodation</h6>
+          <div class="form-check form-check-inline ml-3">
+              <input class="form-check-input" type="radio" formControlName="hostel_req"  name="inlineRadioOptions" id="inlineRadio1"
+              [checked]="accomodation==='D'" value="D" [(ngModel)]="accomodation">
+              <label class="form-check-label" for="inlineRadio1">Day Schooler</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"  formControlName="hostel_req" name="inlineRadioOptions" id="inlineRadio2"
+              [checked]="accomodation !== 'D'" value="H" [(ngModel)]="accomodation">
+              <label class="form-check-label" for="inlineRadio2">Hosteller</label>
+          </div>
+          <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+            <label for="gender" class="form-label col-form-label-sm">Gender</label>
+            <select id="gender" formControlName="gender" class="form-select">
+            <option selected>Choose...</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            </select>
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="dob" class="form-label col-form-label-sm">Date Of Birth</label>
+            <input type="date" class="form-control form-control-sm" id="dob" formControlName="dob">
+          </div>
+          <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+            <label for="category" class="form-label col-form-label-sm">Category</label>
+            <select id="category" formControlName="category" class="form-select">
+            <option selected>Choose...</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="OBC">OBC</option>
+            <option value="GEN">GENERAL</option>
+            </select>
+          </div>
+
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="religion" class="form-label col-form-label-sm">Religion</label>
+            <input type="text" class="form-control form-control-sm" id="religion" formControlName="religion">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="nationality" class="form-label col-form-label-sm">Nationality</label>
+            <input type="text" class="form-control form-control-sm" id="nationality" formControlName="nationality">
+          </div>
+        </div>
+
+        <div class="row">
+        <h6 class="mt-2 col-12 text-muted text-uppercase">HSLC Record*</h6>
+
+        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+          <label for="prev_school" class="form-label col-form-label-sm">Previous School Attended</label>
+          <input type="text" class="form-control form-control-sm" id="prev_school" formControlName="prev_school">
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+          <label for="prev_board" class="form-label col-form-label-sm">Board</label>
+          <input type="text" class="form-control form-control-sm" id="prev_board" formControlName="prev_board">
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+          <label for="prev_roll" class="form-label col-form-label-sm">Roll No</label>
+          <input type="text" class="form-control form-control-sm" id="prev_roll" formControlName="prev_roll">
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+          <label for="prev_passyear" class="form-label col-form-label-sm">Year of Passing</label>
+          <input type="text" class="form-control form-control-sm" id="prev_passyear" formControlName="prev_passyear">
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+          <label for="prev_div" class="form-label col-form-label-sm">Division</label>
+          <input type="text" class="form-control form-control-sm" id="prev_div" formControlName="prev_div">
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+          <label for="prev_percent" class="form-label col-form-label-sm">Percentage</label>
+          <input type="text" class="form-control form-control-sm" id="prev_percent" formControlName="prev_percent">
+        </div>
+        </div>
+
+        <div class="row">
+          <h6 class="mt-2 col-12 text-muted text-uppercase">Parent's Information</h6>
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <label for="father_name" class="form-label col-form-label-sm">Father's Name</label>
+            <input type="text" class="form-control form-control-sm" id="father_name" formControlName="father_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="father_phone" class="form-label col-form-label-sm">Phone No</label>
+            <input type="text" class="form-control form-control-sm" id="father_phone" formControlName="father_phone">
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <label for="mother_name" class="form-label col-form-label-sm">Mother's Name</label>
+            <input type="text" class="form-control form-control-sm" id="mother_name" formControlName="mother_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="mother_phone" class="form-label col-form-label-sm">Phone No</label>
+            <input type="text" class="form-control form-control-sm" id="mother_phone" formControlName="mother_phone">
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <label for="guardian_name" class="form-label col-form-label-sm">Guardian Name</label>
+            <input type="text" class="form-control form-control-sm" id="guardian_name" formControlName="guardian_name">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="guardian_phone"  class="form-label col-form-label-sm">Phone No</label>
+            <input type="text" class="form-control form-control-sm" id="guardian_phone" formControlName="guardian_phone">
+          </div>
+          <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+            <label for="category" class="form-label col-form-label-sm">Relation with Guardian</label>
+            <select id="category" formControlName="guardian_rel" class="form-select">
+            <option selected>Choose...</option>
+            <option value="FATHER">FATHER</option>
+            <option value="MOTHER">MOTHER</option>
+            <option value="BROTHER">BROTHER</option>
+            <option value="SISTER">SISTER</option>
+            <option value="GRANDFATHER">GRANDFATHER</option>
+            <option value="GRANDMOTHER">GRANDMOTHER</option>
+            </select>
+          </div>
+        </div>
+          <h6 style="display: inline;">Is Disabled</h6>
+          <div class="form-check form-check-inline ml-3">
+              <input class="form-check-input" type="radio" formControlName="phy_challenge" name="inlineRadioOptions" id="inlineRadio1"
+              [checked]="accomodation==='Y'" value="Y" [(ngModel)]="isdisable">
+              <label class="form-check-label" for="inlineRadio1">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="phy_challenge" name="inlineRadioOptions" id="inlineRadio2"
+              [checked]="accomodation !== 'Y'" value="N" [(ngModel)]="isdisable">
+              <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+
+
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+            <button type="button" class="btn btn-primary mt-2" (click)="saveNewAdmission()" title="save new admission">Save</button>
+            <button type="button" class="btn btn-primary mt-2 ml-2"  title="Print Admission Reciept">Print Admission Reciept</button>
+          </div>
+        </div>
+
+        <!-- <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div> -->
+      </form>
+    </div>
+
+  </div>
+  <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+    <input type="hidden" class="form-control form-control-sm" id="sub1" formControlName="sub1">
+    <input type="hidden" class="form-control form-control-sm" id="sub2" formControlName="sub2">
+    <input type="hidden" class="form-control form-control-sm" id="sub3" formControlName="sub3">
+    <input type="hidden" class="form-control form-control-sm" id="sub4" formControlName="sub4">
+    <input type="hidden" class="form-control form-control-sm" id="sub5" formControlName="sub5">
+    <input type="hidden" class="form-control form-control-sm" id="sub6" formControlName="sub6">
+  </div>
+</div>
