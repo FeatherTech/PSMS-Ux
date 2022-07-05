@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { admission } from '../models';
-import { DOCUMENT_MASTER } from '../models/DOCUMENT_MASTER';
-import { SUBDOMAIN } from '../models/SUBDOMAIN';
 import { MessageServiceService } from '../_services/message-service.service';
 import { RestService } from '../_services/rest.service';
 
@@ -80,7 +78,7 @@ export class AdmissionComponent implements OnInit {
   this.adm['sub4'].setValue('ECONOMICS');
   this.adm['sub5'].setValue('ENTREPRENEURSHIP');
   this.adm['sub6'].setValue('ALT ENGLISH');
-  
+
    }
   }
   private formInit(): void {

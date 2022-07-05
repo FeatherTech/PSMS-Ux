@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DOMAIN } from '../models/DOMAIN';
-import { Menu } from '../models/Menu';
-import { PubSubModel } from '../models/PubSupModel';
-import { SUBDOMAIN } from '../models/SUBDOMAIN';
 import { AuthenticationService } from '../_services';
 import { MessageServiceService } from '../_services/message-service.service';
 import { RestService } from '../_services/rest.service';
@@ -19,9 +15,6 @@ export class HeaderComponent implements OnInit {
   loggedInusrName = '';
   usrAuthenticated = false;
   subscription: Subscription;
-  private domains: DOMAIN[] = [];
-  private subDomains: SUBDOMAIN[] = [];
-  menus: Menu[] = [];
   constructor(private svc: RestService,
               private messageService: MessageServiceService,
               private authenticationService: AuthenticationService) {

@@ -1,4 +1,5 @@
-export class fees_structure {
+export class student_payment {
+  regn_no: string;
   session: string;
   class: string;
   stream: string;
@@ -6,5 +7,6 @@ export class fees_structure {
   installment: string;
   head: string;
   amount: number;
-  serial: number;
+  del_flag: string;
+  pay_type: string;
 }

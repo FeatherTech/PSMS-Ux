@@ -1,6 +1,0 @@
-import { QUESTION_CONTROL_AND_CONTROL_MASTER } from './QUESTION_CONTROL_AND_CONTROL_MASTER';
-
-export class UserResponse {
-    public QUESTION_CONTROL_AND_CONTROL_MASTER: QUESTION_CONTROL_AND_CONTROL_MASTER;
-    public AnsweredValue: string;
-}
