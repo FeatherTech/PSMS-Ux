@@ -144,10 +144,10 @@
 
             </tbody>
           </table>
-          <div class="row">
+          <div class="row noprint">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
               <button type="button" class="btn btn-primary mt-2" title="Pay Admission Fee" (click)="savePmt()">Pay Admission Fee</button>
-              <button type="button" class="btn btn-primary mt-2 ml-2" title="Print Reciept">Print Reciept</button>
+              <button type="button" class="btn btn-primary mt-2 ml-2" title="Print Reciept" (click)="printPage()">Print Reciept</button>
               <button type="button" class="btn btn-primary mt-2 ml-2" (click)="clickMisFeesAdd()"
                 title="Add Miscellaneous Fees">Add Miscellaneous Fees</button>
               <button type="button" class="btn btn-primary mt-2 ml-2" (click)="clickMisFeesAdd(1)"

@@ -212,6 +212,9 @@ export class PaymentComponent implements OnInit {
         err => { this.spinnerPmt = false; console.log(JSON.stringify(err)); });
 
   }
+  printPage(): void {
+    window.print();
+  }
 
   // setPaymentType(val: any) {
   //   // debugger;

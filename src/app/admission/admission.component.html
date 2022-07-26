@@ -7,12 +7,12 @@
   <h4 class="text-primary" style="display: inline;">New Admission</h4>
   <div class="form-check form-check-inline ml-3">
     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-    [checked]="admissionOf==='A-10'" value="A-10" [(ngModel)]="admissionOf">
+      [checked]="admissionOf==='A-10'" value="A-10" [(ngModel)]="admissionOf">
     <label class="form-check-label" for="inlineRadio1">A-10</label>
   </div>
   <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-    [checked]="admissionOf !== 'A-10'" value="11-12" [(ngModel)]="admissionOf">
+      [checked]="admissionOf !== 'A-10'" value="11-12" [(ngModel)]="admissionOf">
     <label class="form-check-label" for="inlineRadio2">11-12</label>
   </div>
   <div *ngIf="!spinner">
@@ -46,7 +46,8 @@
           </div>
           <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
             <label for="admin_in_class" class="form-label col-form-label-sm">Admission in Class</label>
-            <input type="text" class="form-control form-control-sm" id="admin_in_class" formControlName="admin_in_class">
+            <input type="text" class="form-control form-control-sm" id="admin_in_class"
+              formControlName="admin_in_class">
           </div>
           <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
             <label for="tribe" class="form-label col-form-label-sm">Tribe / Community</label>
@@ -199,8 +200,10 @@
         </div> -->
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-            <button type="button" class="btn btn-primary mt-2" (click)="saveNewAdmission()" title="save new admission">Save</button>
-            <button type="button" class="btn btn-primary mt-2 ml-2"  title="Print Admission Reciept">Print Admission Reciept</button>
+            <button type="button" class="btn btn-primary mt-2" (click)="saveNewAdmission()"
+              title="save new admission">Save</button>
+            <button type="button" class="btn btn-primary mt-2 ml-2" title="Print Admission Reciept">Print Admission
+              Reciept</button>
           </div>
         </div>
 
@@ -261,88 +264,74 @@
             <label for="phone" class="form-label col-form-label-sm">Phone No</label>
             <input type="text" class="form-control form-control-sm" id="phone" formControlName="phone">
           </div>
-
-          <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
             <label for="cls" class="form-label col-form-label-sm">Class</label>
-            <select id="cls" formControlName="class"  class="form-select">
-            <option selected>Choose...</option>
-            <option value="11">XI</option>
-            <option value="12">XII</option>
+            <select id="cls" formControlName="class" class="form-select form-control-sm">
+              <option selected disabled>Choose...</option>
+              <option value="11">XI</option>
+              <option value="12">XII</option>
             </select>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <label for="cls" class="form-label col-form-label-sm">Stream</label>
-          <div class="form-check form-check-inline ml-3">
-            <input class="form-check-input" type="radio" formControlName="stream"  (click) ="handleChange('ARTS')" name="inlineRadioOptions" id="inlineRadio1"
-            value="ARTS" [(ngModel)]="stream">
-            <label class="form-check-label" for="inlineRadio1">ARTS</label>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="stream" value="ARTS">
+              <label class="form-check-label col-form-label-sm" for="inlineRadio1">Arts</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="stream" value="SCIENCE">
+              <label class="form-check-label col-form-label-sm" for="inlineRadio2">Science</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="stream" value="COMMERCE">
+              <label class="form-check-label col-form-label-sm" for="inlineRadio3">Commerce</label>
+            </div>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" formControlName="stream"  (click) ="handleChange('SCIENCE')" name="inlineRadioOptions" id="inlineRadio2"
-             value="SCIENCE" [(ngModel)]="stream">
-            <label class="form-check-label" for="inlineRadio2">SCIENCE</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" formControlName="stream"  (click) ="handleChange('COMMERCE')" name="inlineRadioOptions" id="inlineRadio3"
-            value="COMMERCE" [(ngModel)]="stream">
-            <label class="form-check-label" for="inlineRadio3">COMMERCE</label>
-          </div>
-          </div>
-          <div *ngIf="stream === 'SCIENCE'" class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
-            <label for="science" class="form-label col-form-label-sm">Elective Subject</label>
-            <select id="science" formControlName="sub6" class="form-select">
-            <option selected>Choose...</option>
-            <option value="ALTENGLISH">ALT.ENGLISH</option>
-            <option value="COMPUTERSCIENCE">COMPUTER SCIENCE</option>
-            </select>
-          </div>
-          <div *ngIf="stream === 'COMMERCE'" class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
-            <label for="commerce" class="form-label col-form-label-sm">Elective Subject</label>
-            <select id="commerce" formControlName="sub6"  class="form-select">
-            <option selected>Choose...</option>
-            <option value="ALTENGLISH">ALT.ENGLISH</option>
-            <option value="COMPUTERSCIENCE">COMPUTER SCIENCE</option>
-            </select>
-          </div>
-          <div *ngIf="stream === 'ARTS'" class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+
+          <div *ngIf="undefined !== adm.stream.value && (adm.stream.value !=='')" class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
             <label for="cls" class="form-label col-form-label-sm">Elective Subject</label>
-            <select id="arts" formControlName="sub6" class="form-select">
-            <option selected>Choose...</option>
-            <option value="ECONOMICS">ECONOMICS</option>
-            <option value="MUSIC">MUSIC</option>
+            <select id="cls" formControlName="class" class="form-select form-control-sm">
+              <option selected disabled>Choose...</option>
+              <option *ngIf="adm.stream.value === 'SCIENCE' || adm.stream.value === 'COMMERCE'" value="ALTENGLISH">ALT.ENGLISH</option>
+              <option *ngIf="adm.stream.value === 'SCIENCE' || adm.stream.value === 'COMMERCE'" value="COMPUTERSCIENCE">COMPUTER SCIENCE</option>
+              <option *ngIf="adm.stream.value === 'ARTS'" value="ECONOMICS">ECONOMICS</option>
+              <option *ngIf="adm.stream.value === 'ARTS'" value="MUSIC">MUSIC</option>
             </select>
           </div>
-          <h6 style="display: inline;">Accomodation</h6>
+        </div>
+        <div class="row">
+          <h6 class="mt-2 col-12 text-muted text-uppercase">Accomodation</h6>
           <div class="form-check form-check-inline ml-3">
-              <input class="form-check-input" type="radio" formControlName="hostel_req"  name="inlineRadioOptions" id="inlineRadio1"
-              [checked]="accomodation==='D'" value="D" [(ngModel)]="accomodation">
-              <label class="form-check-label" for="inlineRadio1">Day Schooler</label>
+            <input class="form-check-input" type="radio" formControlName="hostel_req" [checked]="accomodation==='D'"
+              value="D" [(ngModel)]="accomodation">
+            <label class="form-check-label" for="inlineRadio1">Day Schooler</label>
           </div>
           <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio"  formControlName="hostel_req" name="inlineRadioOptions" id="inlineRadio2"
-              [checked]="accomodation !== 'D'" value="H" [(ngModel)]="accomodation">
-              <label class="form-check-label" for="inlineRadio2">Hosteller</label>
+            <input class="form-check-input" type="radio" formControlName="hostel_req" [checked]="accomodation !== 'D'"
+              value="H" [(ngModel)]="accomodation">
+            <label class="form-check-label" for="inlineRadio2">Hosteller</label>
           </div>
-          <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
             <label for="gender" class="form-label col-form-label-sm">Gender</label>
-            <select id="gender" formControlName="gender" class="form-select">
-            <option selected>Choose...</option>
-            <option value="M">Male</option>
-            <option value="F">Female</option>
+            <select id="gender" formControlName="gender" class="form-select form-control-sm">
+              <option selected disabled>Choose...</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
             </select>
           </div>
           <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
             <label for="dob" class="form-label col-form-label-sm">Date Of Birth</label>
             <input type="date" class="form-control form-control-sm" id="dob" formControlName="dob">
           </div>
-          <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
+          <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
             <label for="category" class="form-label col-form-label-sm">Category</label>
-            <select id="category" formControlName="category" class="form-select">
-            <option selected>Choose...</option>
-            <option value="SC">SC</option>
-            <option value="ST">ST</option>
-            <option value="OBC">OBC</option>
-            <option value="GEN">GENERAL</option>
+            <select id="category" formControlName="category" class="form-select form-control-sm">
+              <option selected>Choose...</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              <option value="OBC">OBC</option>
+              <option value="GEN">GENERAL</option>
             </select>
           </div>
 
@@ -357,32 +346,32 @@
         </div>
 
         <div class="row">
-        <h6 class="mt-2 col-12 text-muted text-uppercase">HSLC Record*</h6>
+          <h6 class="mt-2 col-12 text-muted text-uppercase">HSLC Record*</h6>
 
-        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
-          <label for="prev_school" class="form-label col-form-label-sm">Previous School Attended</label>
-          <input type="text" class="form-control form-control-sm" id="prev_school" formControlName="prev_school">
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
-          <label for="prev_board" class="form-label col-form-label-sm">Board</label>
-          <input type="text" class="form-control form-control-sm" id="prev_board" formControlName="prev_board">
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
-          <label for="prev_roll" class="form-label col-form-label-sm">Roll No</label>
-          <input type="text" class="form-control form-control-sm" id="prev_roll" formControlName="prev_roll">
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
-          <label for="prev_passyear" class="form-label col-form-label-sm">Year of Passing</label>
-          <input type="text" class="form-control form-control-sm" id="prev_passyear" formControlName="prev_passyear">
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
-          <label for="prev_div" class="form-label col-form-label-sm">Division</label>
-          <input type="text" class="form-control form-control-sm" id="prev_div" formControlName="prev_div">
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
-          <label for="prev_percent" class="form-label col-form-label-sm">Percentage</label>
-          <input type="text" class="form-control form-control-sm" id="prev_percent" formControlName="prev_percent">
-        </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="prev_school" class="form-label col-form-label-sm">Previous School Attended</label>
+            <input type="text" class="form-control form-control-sm" id="prev_school" formControlName="prev_school">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="prev_board" class="form-label col-form-label-sm">Board</label>
+            <input type="text" class="form-control form-control-sm" id="prev_board" formControlName="prev_board">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="prev_roll" class="form-label col-form-label-sm">Roll No</label>
+            <input type="text" class="form-control form-control-sm" id="prev_roll" formControlName="prev_roll">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="prev_passyear" class="form-label col-form-label-sm">Year of Passing</label>
+            <input type="text" class="form-control form-control-sm" id="prev_passyear" formControlName="prev_passyear">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="prev_div" class="form-label col-form-label-sm">Division</label>
+            <input type="text" class="form-control form-control-sm" id="prev_div" formControlName="prev_div">
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <label for="prev_percent" class="form-label col-form-label-sm">Percentage</label>
+            <input type="text" class="form-control form-control-sm" id="prev_percent" formControlName="prev_percent">
+          </div>
         </div>
 
         <div class="row">
@@ -408,39 +397,42 @@
             <input type="text" class="form-control form-control-sm" id="guardian_name" formControlName="guardian_name">
           </div>
           <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
-            <label for="guardian_phone"  class="form-label col-form-label-sm">Phone No</label>
-            <input type="text" class="form-control form-control-sm" id="guardian_phone" formControlName="guardian_phone">
+            <label for="guardian_phone" class="form-label col-form-label-sm">Phone No</label>
+            <input type="text" class="form-control form-control-sm" id="guardian_phone"
+              formControlName="guardian_phone">
           </div>
           <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
             <label for="category" class="form-label col-form-label-sm">Relation with Guardian</label>
-            <select id="category" formControlName="guardian_rel" class="form-select">
-            <option selected>Choose...</option>
-            <option value="FATHER">FATHER</option>
-            <option value="MOTHER">MOTHER</option>
-            <option value="BROTHER">BROTHER</option>
-            <option value="SISTER">SISTER</option>
-            <option value="GRANDFATHER">GRANDFATHER</option>
-            <option value="GRANDMOTHER">GRANDMOTHER</option>
+            <select id="category" formControlName="guardian_rel" class="form-select form-control-sm">
+              <option selected disabled>Choose...</option>
+              <option value="FATHER">FATHER</option>
+              <option value="MOTHER">MOTHER</option>
+              <option value="BROTHER">BROTHER</option>
+              <option value="SISTER">SISTER</option>
+              <option value="GRANDFATHER">GRANDFATHER</option>
+              <option value="GRANDMOTHER">GRANDMOTHER</option>
             </select>
           </div>
         </div>
-          <h6 style="display: inline;">Is Disabled</h6>
-          <div class="form-check form-check-inline ml-3">
-              <input class="form-check-input" type="radio" formControlName="phy_challenge" name="inlineRadioOptions" id="inlineRadio1"
-              [checked]="accomodation==='Y'" value="Y" [(ngModel)]="isdisable">
-              <label class="form-check-label" for="inlineRadio1">Yes</label>
-          </div>
-          <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" formControlName="phy_challenge" name="inlineRadioOptions" id="inlineRadio2"
-              [checked]="accomodation !== 'Y'" value="N" [(ngModel)]="isdisable">
-              <label class="form-check-label" for="inlineRadio2">No</label>
-          </div>
+        <h6 style="display: inline;">Is Disabled</h6>
+        <div class="form-check form-check-inline ml-3">
+          <input class="form-check-input" type="radio" formControlName="phy_challenge" [checked]="accomodation==='Y'"
+            value="Y" [(ngModel)]="isdisable">
+          <label class="form-check-label" for="inlineRadio1">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="phy_challenge" [checked]="accomodation !== 'Y'"
+            value="N" [(ngModel)]="isdisable">
+          <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
 
 
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-            <button type="button" class="btn btn-primary mt-2" (click)="saveNewAdmission()" title="save new admission">Save</button>
-            <button type="button" class="btn btn-primary mt-2 ml-2"  title="Print Admission Reciept">Print Admission Reciept</button>
+            <button type="button" class="btn btn-primary mt-2" (click)="saveNewAdmission()"
+              title="save new admission">Save</button>
+            <button type="button" class="btn btn-primary mt-2 ml-2" title="Print Admission Reciept">Print Admission
+              Reciept</button>
           </div>
         </div>
 
@@ -483,12 +475,12 @@
     </div>
 
   </div>
-  <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+  <!-- <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
     <input type="hidden" class="form-control form-control-sm" id="sub1" formControlName="sub1">
     <input type="hidden" class="form-control form-control-sm" id="sub2" formControlName="sub2">
     <input type="hidden" class="form-control form-control-sm" id="sub3" formControlName="sub3">
     <input type="hidden" class="form-control form-control-sm" id="sub4" formControlName="sub4">
     <input type="hidden" class="form-control form-control-sm" id="sub5" formControlName="sub5">
     <input type="hidden" class="form-control form-control-sm" id="sub6" formControlName="sub6">
-  </div>
+  </div> -->
 </div>

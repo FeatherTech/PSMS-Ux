@@ -21,11 +21,10 @@ export class AdmissionComponent implements OnInit {
   subscription: Subscription;
   readCriterion = false;
   admissionOf: string = 'A-10';
-  stream : string ;
-  accomodation : string;
-  isdisable : string;
+  accomodation: string;
+  isdisable: string;
   sub1: string;
-  sub2:string;
+  sub2: string;
   sub3: string;
   sub4: string;
   sub5: string;
@@ -48,39 +47,39 @@ export class AdmissionComponent implements OnInit {
 
   }
 
-  handleChange(ev:string)
-  {
-    debugger;
-   this.stream=ev;
-   if (ev=='ARTS')
-   {
-  this.adm['sub1'].setValue('ENGLISH');
-  this.adm['sub2'].setValue('EDUCATION');
-  this.adm['sub3'].setValue('POLITICAL SCIENCE');
-  this.adm['sub4'].setValue('HISTORY');
-  this.adm['sub5'].setValue('ALT ENGLISH');
-  this.adm['sub6'].setValue('ECONOMICS');
-   }
-   if (ev=='SCIENCE')
-   {
-  this.adm['sub1'].setValue('ENGLISH');
-  this.adm['sub2'].setValue('CHEMISTRY');
-  this.adm['sub3'].setValue('PHYSICS');
-  this.adm['sub4'].setValue('BIOLOGY');
-  this.adm['sub5'].setValue('MATHS');
-  this.adm['sub6'].setValue('ALT ENGLISH');
-   }
-   else
-   {
-  this.adm['sub1'].setValue('ENGLISH');
-  this.adm['sub2'].setValue('BUSINESS STUDIES');
-  this.adm['sub3'].setValue('ACCOUNTANCY');
-  this.adm['sub4'].setValue('ECONOMICS');
-  this.adm['sub5'].setValue('ENTREPRENEURSHIP');
-  this.adm['sub6'].setValue('ALT ENGLISH');
+  // handleChange(ev:string)
+  // {
+  //   debugger;
+  //  this.stream=ev;
+  //  if (ev=='ARTS')
+  //  {
+  // this.adm['sub1'].setValue('ENGLISH');
+  // this.adm['sub2'].setValue('EDUCATION');
+  // this.adm['sub3'].setValue('POLITICAL SCIENCE');
+  // this.adm['sub4'].setValue('HISTORY');
+  // this.adm['sub5'].setValue('ALT ENGLISH');
+  // this.adm['sub6'].setValue('ECONOMICS');
+  //  }
+  //  if (ev=='SCIENCE')
+  //  {
+  // this.adm['sub1'].setValue('ENGLISH');
+  // this.adm['sub2'].setValue('CHEMISTRY');
+  // this.adm['sub3'].setValue('PHYSICS');
+  // this.adm['sub4'].setValue('BIOLOGY');
+  // this.adm['sub5'].setValue('MATHS');
+  // this.adm['sub6'].setValue('ALT ENGLISH');
+  //  }
+  //  else
+  //  {
+  // this.adm['sub1'].setValue('ENGLISH');
+  // this.adm['sub2'].setValue('BUSINESS STUDIES');
+  // this.adm['sub3'].setValue('ACCOUNTANCY');
+  // this.adm['sub4'].setValue('ECONOMICS');
+  // this.adm['sub5'].setValue('ENTREPRENEURSHIP');
+  // this.adm['sub6'].setValue('ALT ENGLISH');
 
-   }
-  }
+  //  }
+  // }
   private formInit(): void {
     this.admissionFrm = this.frmBldr.group({
       serial_no: [''],
@@ -219,7 +218,7 @@ export class AdmissionComponent implements OnInit {
     newAdm.approval_stat = this.adm['approval_stat'].value;
     newAdm.remarks = this.adm['remarks'].value;
     newAdm.del_flg = this.adm['del_flg'].value;
-    newAdm.phy_challenge=this.adm['phy_challenge'].value;
+    newAdm.phy_challenge = this.adm['phy_challenge'].value;
     newAdm.sub1 = this.adm['sub1'].value;
     newAdm.sub2 = this.adm['sub2'].value;
     newAdm.sub3 = this.adm['sub3'].value;
